@@ -164,22 +164,28 @@ def show_results_window(VehicleId):
     except ValueError:
         error_label = Label(win2, text='Not rated').grid(row = 7, column = 1, columnspan = 5)
 
-    img_url_front = dictionary['FrontCrashPicture']
-    img_url_side = dictionary['SideCrashPicture']
-    empty_col = Label(win2, text='           ').grid(row=2 , column=6)
-    image_data_front = urlopen(img_url_front).read()
-    image_front = Image.open(BytesIO(image_data_front))
-    image_front = ImageTk.PhotoImage(image_front)
-    front_img_label = Label(win2, image=image_front, relief = 'sunken', bd=7)
-    front_img_label.image = image_front
-    front_img_label.grid(row=1, column=12,rowspan=10)
+    try:
+        img_url_front = dictionary['FrontCrashPicture']
+        empty_col = Label(win2, text='           ').grid(row=2 , column=6)
+        image_data_front = urlopen(img_url_front).read()
+        image_front = Image.open(BytesIO(image_data_front))
+        image_front = ImageTk.PhotoImage(image_front)
+        front_img_label = Label(win2, image=image_front, relief = 'sunken', bd=7)
+        front_img_label.image = image_front
+        front_img_label.grid(row=1, column=12,rowspan=10)
+    except KeyError:
+        pass
 
-    image_data_side = urlopen(img_url_side).read()
-    image_side = Image.open(BytesIO(image_data_side))
-    image_side = ImageTk.PhotoImage(image_side)
-    side_img_label = Label(win2, image=image_side, relief = 'sunken', bd=7)
-    side_img_label.image = image_side
-    side_img_label.grid(row=12, column=12, rowspan=5)    
+    try:
+        img_url_side = dictionary['SideCrashPicture']
+        image_data_side = urlopen(img_url_side).read()
+        image_side = Image.open(BytesIO(image_data_side))
+        image_side = ImageTk.PhotoImage(image_side)
+        side_img_label = Label(win2, image=image_side, relief = 'sunken', bd=7)
+        side_img_label.image = image_side
+        side_img_label.grid(row=12, column=12, rowspan=5)
+    except KeyError:
+        pass
 
 def center_window(width=400, height=350):
     screen_width = win.winfo_screenwidth()
