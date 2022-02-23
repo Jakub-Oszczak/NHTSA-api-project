@@ -192,12 +192,15 @@ def center_window(width=400, height=350):
 def clear():
     global num_of_clicks
     num_of_clicks = 0
-    make_table.grid_remove()
-    model_table.grid_remove()
-    variant_table.grid_remove()
-    make_label.grid_forget()
-    model_label.grid_forget()
-    variant_label.grid_forget()
+    try:
+        make_label.grid_forget()
+        make_table.grid_remove()
+        model_label.grid_forget()
+        model_table.grid_remove()
+        variant_label.grid_forget()
+        variant_table.grid_remove()
+    except NameError:
+        pass
     year_table['state'] = NORMAL
 
 win = Tk()
