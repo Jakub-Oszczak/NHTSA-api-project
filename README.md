@@ -9,3 +9,5 @@ NHTSA has lots of unrated cars in their database, so here I list few working (no
 6. 2017 Chrysler 300 4 DR AWD
 
 If you want to check your own examples I recommend checking american car brands, because european ones are mostly "Not rated".
+
+What I have mainly learned while doing this project is how to work with APIs and images in python and also how to use TKinter module.
