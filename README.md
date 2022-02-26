@@ -10,4 +10,4 @@ NHTSA has lots of unrated cars in their database, so here I list few working (no
 
 If you want to check your own examples I recommend checking american car brands, because european ones are mostly "Not rated".
 
-What I have mainly learned while making this project is how to work with APIs and images in python and also how to use TKinter module.
+What I have mainly learned while making this project is how to work with APIs and images in python and also how to use Tkinter module.
